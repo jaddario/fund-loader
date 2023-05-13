@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS operations;
 
 CREATE TABLE operations
 (
-    uuid        varchar(255) PRIMARY KEY,
+    uuid        binary(16) PRIMARY KEY,
     id          integer(10),
     customer_id integer(10),
     load_amount bigint(255),
