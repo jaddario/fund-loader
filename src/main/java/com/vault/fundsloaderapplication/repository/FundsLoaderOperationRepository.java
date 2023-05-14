@@ -17,39 +17,37 @@ public interface FundsLoaderOperationRepository extends JpaRepository<Operation,
 
     @Query(
             value = """
-                        SELECT coalesce(sum(operations.load_amount), 0)
-                          FROM operations
-                         WHERE operations.customer_id = :customerId
-                           AND accepted = TRUE
+                        SELECT coalesce(sum(loadAmount), 0)
+                          FROM Operation
+                         WHERE customerId = :customerId
+                           AND accepted = true
                            AND time = :date
-                    """,
-            nativeQuery = true
+                    """
     )
     BigDecimal dailyLoadAmountsFromCustomer(@Param("customerId") long customerId, @Param("date") LocalDateTime date);
 
     @Query(
             value = """
-                        SELECT coalesce(sum(operations.load_amount), 0)
-                          FROM operations
-                         WHERE operations.customer_id = :customerId
-                           AND accepted = TRUE
+                        SELECT coalesce(sum(loadAmount), 0)
+                          FROM Operation
+                         WHERE customerId = :customerId
+                           AND accepted = true
                            AND time between :firstDayOfWeek and :lastDayOfWeek
-                    """,
-            nativeQuery = true
+                    """
     )
-    BigDecimal weeklyLoadAmountsFromCustomer(@Param("customerId") long customerId,
-                                             @Param("firstDayOfWeek") LocalDateTime firstDayOfWeek, @Param(
-                                                     "lastDayOfWeek") LocalDateTime lastDayOfWeek);
+    BigDecimal weeklyLoadAmountsFromCustomer(
+            @Param("customerId") long customerId,
+            @Param("firstDayOfWeek") LocalDateTime firstDayOfWeek, @Param(
+            "lastDayOfWeek") LocalDateTime lastDayOfWeek);
 
     @Query(
             value = """
                         SELECT count(*)
                           FROM Operation
                          WHERE customerId = :customerId
-                           AND accepted = TRUE
+                           AND accepted = true
                            AND time = :date
-                    """,
-            nativeQuery = false
+                    """
     )
     int dailyOperationsFromCustomer(@Param("customerId") long customerId, @Param("date") LocalDateTime date);
 }
