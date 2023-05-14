@@ -1,11 +1,11 @@
-DROP TABLE IF EXISTS operations;
+DROP TABLE IF EXISTS OPERATIONS;
 
-CREATE TABLE operations
+CREATE TABLE OPERATIONS
 (
-    uuid        binary(16) PRIMARY KEY,
-    id          integer(10),
-    customer_id integer(10),
-    load_amount bigint(255),
-    time        datetime,
-    accepted    boolean
+    UUID        binary(16) PRIMARY KEY,
+    ID          integer(10),
+    CUSTOMER_ID integer(10),
+    LOAD_AMOUNT bigint(255),
+    TIME        datetime,
+    ACCEPTED    boolean
 );
