@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-05-14T00:14:08+0100",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.2 (Oracle Corporation)"
+    date = "2023-05-19T17:05:53+0100",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.6 (GraalVM Community)"
 )
 @Component
 public class LoadMapperImpl implements LoadMapper {

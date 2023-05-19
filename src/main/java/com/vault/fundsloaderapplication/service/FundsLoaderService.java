@@ -73,7 +73,7 @@ public class FundsLoaderService {
 
     private boolean loadAmountExceedsDailyLimitsPer(Operation operation) {
         BigDecimal totalAmountPerDay = this.fundsLoaderOperationRepository
-                .dailyLoadAmountsFromCustomer(operation.getCustomerId(), operation.getTime());
+                .dailyLoadAmountsFromCustomer(operation.getCustomerId(), operation.getTime().toLocalDate());
         return operation.getLoadAmount().add(totalAmountPerDay).compareTo(DAILY_AMOUNT_LIMIT) > 0;
     }
 }

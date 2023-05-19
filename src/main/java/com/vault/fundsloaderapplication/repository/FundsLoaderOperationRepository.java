@@ -7,8 +7,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 
 @Repository
@@ -21,10 +21,10 @@ public interface FundsLoaderOperationRepository extends JpaRepository<Operation,
                           FROM Operation
                          WHERE customerId = :customerId
                            AND accepted = true
-                           AND time = :date
+                           AND DATE(time) = :date
                     """
     )
-    BigDecimal dailyLoadAmountsFromCustomer(@Param("customerId") long customerId, @Param("date") LocalDateTime date);
+    BigDecimal dailyLoadAmountsFromCustomer(@Param("customerId") long customerId, @Param("date") LocalDate date);
 
     @Query(
             value = """
