@@ -17,7 +17,7 @@ This project was created with the intention of studying and practicing creating 
 
 ## Installation <a name="installation"></a>
 
-After downloading the application from [GitHub](https://github.com/jaddario/fund-loader), navigate to the root folder and run it through [docker compose](https://docs.docker.com/compose/) to install foobar.
+After downloading the application from [GitHub](https://github.com/jaddario/fund-loader), navigate to the root folder and run it through [docker compose](https://docs.docker.com/compose/) comand.
 
 ```bash
 docker-compose up
@@ -65,17 +65,15 @@ data can be found in output.txt.
 
 ## Usage
 
-```python
-import foobar
+Once ths **fund-loader** application is running, the collection indicated in the folder structure 
+below can be used to perform functional tests. 
 
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
+```
+├── src
+│   ├── main
+│   │   ├── java
+│   │   ├── resources
+│   │   │   ├── collections      
 ```
 
 ## Contributing
