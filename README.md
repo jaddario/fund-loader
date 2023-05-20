@@ -7,8 +7,9 @@ This project was created with the intention of studying and practicing creating 
 1. [Installation](#installation)
 2. [Requirements](#requirements)
 3. [Problem](#problem)
-    1. [Sub paragraph](#subparagraph1)
-4. [Another paragraph](#paragraph2)
+4. [Usage](#usage)
+5. [Contributing](#contributing)
+6. [License](#license)
 
 ## Requirements <a name="requirements"></a>
 
@@ -63,7 +64,7 @@ Your program should process lines from input.txt and return output in the format
 specified above, either to standard output or a file. The expected output given our input
 data can be found in output.txt.
 
-## Usage
+## Usage <a name="usage"></a>
 
 Once ths **fund-loader** application is running, the collection indicated in the folder structure 
 below can be used to perform functional tests. 
@@ -76,13 +77,13 @@ below can be used to perform functional tests.
 │   │   │   ├── collections      
 ```
 
-## Contributing
+## Contributing <a name="contributing"></a>
 
 Pull requests are welcome. For major changes, please open an issue first
 to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
-## License
+## License <a name="license"></a>
 
 [MIT](https://choosealicense.com/licenses/mit/)
