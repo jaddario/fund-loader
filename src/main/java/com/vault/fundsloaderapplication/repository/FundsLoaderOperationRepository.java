@@ -32,7 +32,8 @@ public interface FundsLoaderOperationRepository extends JpaRepository<Operation,
                           FROM Operation
                          WHERE customerId = :customerId
                            AND accepted = true
-                           AND time between :firstDayOfWeek and :lastDayOfWeek
+                           AND time >= :firstDayOfWeek 
+                           AND time <= :lastDayOfWeek
                     """
     )
     BigDecimal weeklyLoadAmountsFromCustomer(
@@ -46,8 +47,8 @@ public interface FundsLoaderOperationRepository extends JpaRepository<Operation,
                           FROM Operation
                          WHERE customerId = :customerId
                            AND accepted = true
-                           AND time = :date
+                           AND DATE(time) = :date
                     """
     )
-    int dailyOperationsFromCustomer(@Param("customerId") long customerId, @Param("date") LocalDateTime date);
+    int dailyOperationsFromCustomer(@Param("customerId") long customerId, @Param("date") LocalDate date);
 }

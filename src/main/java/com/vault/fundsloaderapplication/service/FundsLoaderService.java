@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -67,13 +68,13 @@ public class FundsLoaderService {
 
     private boolean maximumLoadsIsReachedPer(Operation operation) {
         int dailyOperations = this.fundsLoaderOperationRepository
-                .dailyOperationsFromCustomer(operation.getCustomerId(), operation.getTime());
+                .dailyOperationsFromCustomer(operation.getCustomerId(), LocalDate.from(operation.getTime()));
         return dailyOperations >= DAILY_OPERATIONS_LIMIT;
     }
 
     private boolean loadAmountExceedsDailyLimitsPer(Operation operation) {
         BigDecimal totalAmountPerDay = this.fundsLoaderOperationRepository
-                .dailyLoadAmountsFromCustomer(operation.getCustomerId(), operation.getTime().toLocalDate());
+                .dailyLoadAmountsFromCustomer(operation.getCustomerId(), LocalDate.from(operation.getTime()));
         return operation.getLoadAmount().add(totalAmountPerDay).compareTo(DAILY_AMOUNT_LIMIT) > 0;
     }
 }
